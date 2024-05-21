@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const MainMenu = () => {
   return (
@@ -13,7 +13,9 @@ const MainMenu = () => {
         <div className="text-blue-600">
           <div className="mb-8 flex flex-col items-center">
             <h1 className="mb-2 text-6xl">Manage Users</h1>
-            <span className="text-2xl text-blue-600">Welcome to the User Management System</span>
+            <span className="text-2xl text-blue-600">
+              Welcome to the User Management System
+            </span>
           </div>
           <div className="mt-8 flex justify-center space-x-4 text-lg text-black">
             <Link
