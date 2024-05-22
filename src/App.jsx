@@ -4,6 +4,7 @@ import AuthLayout from "./layouts/auth/AuthLayout";
 // Pages
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Dashboard from "./pages/dashboard/Dashboard";
 import MainMenu from "./pages/home/MainMenu";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<AuthLayout />}>
         <Route index element={<MainMenu />} />
         <Route path="login" element={<Login />} />
+		<Route path="dashboard" element={<Dashboard />} />
         <Route path="register" element={<Register />} />
       </Route>
     </Routes>

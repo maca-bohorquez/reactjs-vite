@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,12 +23,20 @@ const Login = () => {
         throw new Error("Login failed");
       }
 
-      // Login successful, handle further actions like saving tokens, etc.
+      const data = await response.json();
+      // Assuming the response contains a token
+      if (data.token) {
+        // Save the token, e.g., to localStorage
+        localStorage.setItem("token", data.token);
 
-      // Clear form
-      setEmail("");
-      setPassword("");
-      setError("");
+        // Clear form
+        setEmail("");
+        setPassword("");
+        setError("");
+
+        // Redirect to the dashboard
+        navigate("/dashboard");
+      }
     } catch (error) {
       setError("Login failed. Please check your credentials.");
       console.error("Login error:", error);
@@ -35,13 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="min-h-screen h-full w-full flex items-center justify-center bg-gray-900 bg-cover bg-no-repeat"
-      style={{
-        backgroundImage:
-          "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-      }}
-    >
+    <div className="min-h-screen h-full w-full flex items-center justify-center bg-gradient-to-r from-sky-950 to-cyan-500 bg-cover bg-no-repeat">
       <div className="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
         <div className="text-white">
           <div className="mb-8 flex flex-col items-center">
@@ -52,9 +55,8 @@ const Login = () => {
             <div className="mb-4 text-lg">
               <input
                 className="rounded-3xl border-none bg-blue-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-                type="text" 
+                type="text"
                 name="email"
-                autoComplete="email"
                 placeholder="email@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +69,6 @@ const Login = () => {
                 className="rounded-3xl border-none bg-blue-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                 type="password"
                 name="password"
-                autoComplete="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

@@ -39,13 +39,7 @@ const Register = () => {
   };
 
   return (
-    <div
-      className="min-h-screen h-screen w-full flex items-center justify-center bg-gray-900 bg-cover bg-no-repeat"
-      style={{
-        backgroundImage:
-          "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-      }}
-    >
+    <div className="min-h-screen h-screen w-full flex items-center justify-center bg-gradient-to-r from-sky-950 to-cyan-500 bg-cover bg-no-repeat">
       <div className="w-full max-w-md rounded-xl bg-gray-800 bg-opacity-50 px-8 py-10 shadow-lg backdrop-blur-md">
         <div className="text-white">
           <div className="mb-8 flex flex-col items-center">
@@ -70,7 +64,7 @@ const Register = () => {
                 className=" rounded-3xl border-none bg-blue-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                 type="text"
                 name="name"
-				autoComplete="given-name"
+                autoComplete="given-name"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -83,7 +77,8 @@ const Register = () => {
                 className="rounded-3xl border-none bg-blue-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                 type="email"
                 name="email"
-				autoComplete="email"
+                autoComplete="email"
+                id="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
