@@ -1,35 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const MainMenu = () => {
   return (
-    <div>
-      
-    <div
-      className="min-h-screen h-full w-full flex items-center justify-center bg-gradient-to-r from-sky-950 to-cyan-500 bg-cover bg-no-repeat">
-      <div className="rounded-3xl border-none bg-gray-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md">
-        <div className="text-blue-400">
-          <div className="mb-8 flex flex-col items-center">
-            <h1 className="mb-2 text-6xl">Manage Users</h1>
-            <span className="text-2xl text-blue-400">Welcome to the User Management System</span>
-          </div>
-          <div className="mt-8 flex justify-center space-x-4 text-lg text-black">
+    <section>
+      <div className="bg-sky-950 text-white py-20">
+        <div className="container mx-auto flex w-full flex-col md:flex-row items-center my-12 md:my-24">
+          <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
+            <h1 className="text-3xl md:text-5xl  text-blue-300 tracking-loose">
+              Management
+            </h1>
+            <h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
+              One-click management
+            </h2>
+            <p className="text-sm md:text-base text-gray-50 mb-4">
+              Manage your organization's users and permissions here
+            </p>
             <Link
               to="/login"
-              className="rounded-3xl bg-blue-400 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-blue-600"
+              className="bg-transparent hover:bg-blue-300 text-blue-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-blue-300 hover:border-transparent"
             >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className="rounded-3xl bg-blue-400 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-blue-600"
-            >
-              Register
+              Login Now
             </Link>
           </div>
         </div>
       </div>
-    </div>
-    </div>
+    </section>
   );
 };
 
